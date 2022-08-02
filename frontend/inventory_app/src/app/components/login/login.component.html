@@ -1,17 +1,22 @@
 <div fxLayoutAlign="center center" fxFlexFill fxLayout="column" class="main-div">
     <mat-card fxflex="25">
         <mat-toolbar color="primary" class="tool-bar">Login page</mat-toolbar >
-        <form fxLayout="column" fxLayoutAlign="stretch" class="login-form"> 
+        <form [formGroup]="loginForm" fxLayout="column" fxLayoutAlign="stretch" class="login-form" (ngSubmit)="onLogin()"> 
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Username</mat-label>
-              <input matInput placeholder="">
+              <input matInput placeholder="" formControlName="username">
             </mat-form-field>
       
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Password</mat-label>
-                <input matInput placeholder="" type="password">
+                <input matInput placeholder="" type="password" formControlName="password">
               </mat-form-field>
               <button mat-raised-button type="submit">Login</button>
           </form>
+         
+                    
+          
     </mat-card>
+    <span  class="alert alert-primary" role="alert" *ngIf="errMsg">Your user ID or password is incorrect</span>
+
 </div>
