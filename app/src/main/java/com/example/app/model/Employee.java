@@ -6,17 +6,15 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.xml.transform.sax.SAXResult;
-
-@Document(collection = "assets")
+@Document(collection = "employees")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Asset {
+public class Employee {
     @Id
-    private String assetId;
-    private String assetName;
-    private String assetType;
-    private String givenDate;
-    private String returnDate;
+    private String id;
+    private String name;
+    private String address;
+    private String contact;
+
 }
