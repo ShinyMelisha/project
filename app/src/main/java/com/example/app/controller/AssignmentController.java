@@ -1,10 +1,7 @@
 package com.example.app.controller;
 
-import com.example.app.model.Asset;
-import com.example.app.model.Assignments;
-import com.example.app.repository.AssetRepository;
+import com.example.app.model.Assignment;
 import com.example.app.repository.AssignmentRepository;
-import com.example.app.service.AssetService;
 import com.example.app.service.AssignmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,18 +26,18 @@ public class AssignmentController {
         return "This is view page";
     }
     @GetMapping("/all")
-    public List<Assignments> getAll(){
-        List<Assignments> assignments = this.assignmentRepository.findAll();
+    public List<Assignment> getAll(){
+        List<Assignment> assignments = this.assignmentRepository.findAll();
         return assignments;
     }
 
     @PostMapping("/add")
-    public String addAssignment(@RequestBody Assignments assignments){
-        assignmentService.addAssignment(assignments);
+    public String addAssignment(@RequestBody Assignment assignment){
+        assignmentService.addAssignment(assignment);
         return "Successfully added";
     }
     @PostMapping("/edit")
-    public Assignments editAssignment(@RequestBody Assignments assignment){
+    public Assignment editAssignment(@RequestBody Assignment assignment){
 
         return assignmentService.editAssignment(assignment);
     }

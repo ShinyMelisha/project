@@ -1,11 +1,9 @@
 package com.example.app.repository;
 
-import com.example.app.model.Asset;
-import com.example.app.model.Assignments;
+import com.example.app.model.Assignment;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.expression.spel.ast.Assign;
 
-public interface AssignmentRepository extends MongoRepository<Assignments,String> {
-    Assignments save(Assignments assignments);
+public interface AssignmentRepository extends MongoRepository<Assignment,String> {
+    Assignment save(Assignment assignment);
     void deleteById(String assignmentId);
 }

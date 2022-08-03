@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @NoArgsConstructor
 
-public class Assignments {
+public class Assignment {
     @Id
     private String assignmentId;
     private String employeeId;
