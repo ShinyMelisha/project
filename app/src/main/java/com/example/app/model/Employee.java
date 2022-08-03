@@ -12,9 +12,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 public class Employee {
     @Id
-    private String employeeId;
-    private String employeeName;
-    private String employeeAddress;
-    private String employeeContact;
+    private String id;
+    private String name;
+    private String address;
+    private String contact;
 
 }

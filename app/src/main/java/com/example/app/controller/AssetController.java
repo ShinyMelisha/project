@@ -46,9 +46,9 @@ public class AssetController {
         return assetService.editAsset(asset);
     }
 
-    @DeleteMapping("/delete/{assetId}")
-    public String deleteByAssetId(@PathVariable("assetId") String assetId){
-        assetService.deleteByAssetId(assetId);
+    @DeleteMapping("/delete/{id}")
+    public String deleteByAssetId(@PathVariable("id") String id){
+        assetService.deleteByAssetId(id);
         return "Successfully deleted";
     }
 

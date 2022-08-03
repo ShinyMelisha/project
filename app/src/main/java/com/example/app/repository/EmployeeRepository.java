@@ -6,6 +6,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface EmployeeRepository extends MongoRepository<Employee,String> {
     Employee save(Employee employee);
-    void deleteById(String employeeId);
+    void deleteById(String id);
 
 }
