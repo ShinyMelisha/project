@@ -6,8 +6,13 @@
    "returnDate":"1/22"
 }
 {
-    "employeeId":"ww",
-    "employeeName":"sssssssjm",
-    "employeeAddress":"snn",
-    "employeeContact":"112"
+    "id":"11",
+    "name":"sssssssjm",
+     "address":"snn",
+     "contact":"112"
+{
+    "assignmentId":"2",
+   "assetId":"223",
+   "employeeId":"222"
+
 }
