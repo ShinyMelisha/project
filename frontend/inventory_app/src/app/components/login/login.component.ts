@@ -37,9 +37,7 @@ export class LoginComponent implements OnInit {
    
   }
   onLogin() {
-    console.log(this.loginForm)
-    
-
+    console.log(this.loginForm)    
     if (this.loginForm.valid) {
       const loginData = new LoginUser();
    
@@ -49,11 +47,14 @@ export class LoginComponent implements OnInit {
       this.auth.userLogin(loginData).then(val => {
        
         if (val) {
+         if( val.roles[0]==="ADMIN")
          
-        //this.auth.getRole(loginData)
+        {//this.auth.getRole(loginData)
          this.router.navigate(['dashboard-admin'])
           // this.router.navigate(['dashboard'])
-
+}else{
+  this.router.navigate(['dashboard'])
+}
         }
         else {
           this.errMsg = true;

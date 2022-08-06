@@ -25,4 +25,15 @@ export class ApiService {
       }),
       catchError(async (err) => console.log(err)));
   }
+  post(apiUrl: string, requestObject:{}) {
+    
+    const header = new HttpHeaders({Authourization:'Bearer '+localStorage.getItem('token')!});
+
+    return this.http.post<any>(apiUrl, requestObject).pipe( 
+      map(response => {
+        return response;
+      }),
+       catchError(async (err) => console.log(err)
+      ));
+  }
 }

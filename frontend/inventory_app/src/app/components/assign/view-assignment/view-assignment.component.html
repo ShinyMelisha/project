@@ -1,0 +1,32 @@
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">View assignments</span>
+</nav>
+<table class="table mt-3">
+
+  <thead>
+    <th scope="col">Assignment ID</th>
+    <th scope="col">Employee ID</th>
+    <th scope="col">Asset ID</th>
+  </thead>
+<tbody>
+    <tr *ngFor="let assignment of assignments">
+      <td>{{ assignment.assignmentId }}</td>
+      <td>{{ assignment.employeeId }}</td>
+      <td>{{ assignment.assetId }}</td>
+      <td>
+        <!-- <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal2"
+          class="btn btn-info"
+          (click)="getId(asset.assetId)"
+        >
+          Edit
+        </button> -->
+        <button (click)="deleteAssignment(assignment)" class="btn btn-danger mx-3">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

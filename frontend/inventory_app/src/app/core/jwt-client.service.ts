@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 import { Token } from '@angular/compiler';
 import { LoginComponent } from '../components/login/login.component';
 import { Observable } from 'rxjs';
-
+import jwt_decode from 'jwt-decode';
 export  interface User{
  // role:string;
 }
@@ -31,7 +31,7 @@ export class JwtClientService {
     return this.http.get("http://localhost:8080/", { headers, responseType: 'text' as 'json' });
   }
   // 
-    userLogin(loginData: LoginUser): Promise<boolean> {
+    userLogin(loginData: LoginUser):Promise<any> {
     
     console.log(loginData)
     return new Promise((resolve) => {
@@ -41,24 +41,33 @@ export class JwtClientService {
         
           //console.log(res.roles)
           if (res?.token)  {
-            
             localStorage.setItem('token', res.token);
+            localStorage.setItem('role', res.roles);
             
-            
+            let decode =this.getDecodedAccessToken(res.token)
+            console.log(decode)
                       
-            resolve(true);
+            resolve(res);
            
           }
-         
-          resolve(false)
+          resolve(null)
         });
         
     })
   }
+  getDecodedAccessToken(token: string): any {
+    try {
+      return jwt_decode(token);
+    } catch(Error) {
+      return null;
+    }
+  }
+  
   getRole(){
     return this.http.get(this.loginUrl);
     
 }
+
   
 
 }
