@@ -20,31 +20,35 @@ public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/home")
     public String getHome() {
         return "This is home page";
     }
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/view")
     public String viewEmployee() {
         return "This is view page";
     }
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/all")
     public List<Employee> getAll(){
         List<Employee> employee = this.employeeRepository.findAll();
         return employee;
     }
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/add")
     public String addEmployee(@RequestBody Employee employee){
         employeeService.addEmployee(employee);
         return "Successfully added";
     }
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/edit")
     public Employee editEmployee(@RequestBody Employee employee){
 
         return employeeService.editEmployee(employee);
     }
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/delete/{employeeId}")
     public String deleteByEmployeeId(@PathVariable("employeeId") String employeeId){
         employeeService.deleteByEmployeeId(employeeId);
