@@ -21,33 +21,41 @@ public class AssetController {
     @Autowired
     AssetService assetService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/home")
     public String getHome() {
         return "This is home page";
     }
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/view")
     public String getViewAsset() {
         return "This is view page";
     }
 
-    @GetMapping("/getAll")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/all")
     public List<Asset> getAll(){
         List<Asset> assets = this.assetRepository.findAll();
         return assets;
     }
 
-    @PostMapping("/add")
-    public String addAsset(@Valid @RequestBody Asset asset) throws ResourceNotFoundException{
+    @CrossOrigin(origins = "http://localhost:4200")
+    @ PostMapping("/add")
+    public String addAsset(@RequestBody Asset asset){
         assetService.addAsset(asset);
         return "Successfully added";
     }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/edit")
+    public Asset editAsset(@RequestBody Asset asset){
+
 
     @PostMapping("/edit")
     public Asset editAsset( @Valid @RequestBody Asset asset){
         return assetService.editAsset(asset);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/get/{assetId}")
     public Optional<Asset> getAsset(@PathVariable("assetId") String id) throws ResourceNotFoundException{
         return assetService.getAssetById(id);
