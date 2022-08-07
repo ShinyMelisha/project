@@ -1,12 +1,17 @@
 package com.example.app.controller;
 
+import com.example.app.model.Asset;
 import com.example.app.model.Assignment;
 import com.example.app.repository.AssignmentRepository;
 import com.example.app.service.AssignmentService;
+import com.example.app.utils.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/assign")
 public class AssignmentController {
@@ -32,7 +37,7 @@ public class AssignmentController {
     }
 
     @PostMapping("/add")
-    public String addAssignment(@RequestBody Assignment assignment){
+    public String addAssignment(@Valid @RequestBody Assignment assignment){
         assignmentService.addAssignment(assignment);
         return "Successfully added";
     }
@@ -41,10 +46,14 @@ public class AssignmentController {
 
         return assignmentService.editAssignment(assignment);
     }
+    @GetMapping("/get/{id}")
+    public Optional<Assignment> getAssignment(@PathVariable("id") String id)throws ResourceNotFoundException {
+        return assignmentService.getAssignmentById(id);
+    }
 
     @DeleteMapping("/delete/{assignmentId}")
-    public String deleteByAssignmentId(@PathVariable("assetId") String assignmentsId){
-        assignmentService.deleteByAssignmentId(assignmentsId);
-        return "Successfully deleted";
+    public String deleteByAssignmentId(@PathVariable("assignmentId") String assignmentId){
+        String result =assignmentService.deleteByAssignmentId(assignmentId);
+        return result;
     }
 }
