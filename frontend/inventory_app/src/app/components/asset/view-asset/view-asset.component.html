@@ -18,15 +18,12 @@
       <td>{{ asset.givenDate }}</td>
       <td>{{ asset.returnDate }}</td>
       <td>
-        <!-- <button
-          type="button"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal2"
-          class="btn btn-info"
+        <button
+        type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
           (click)="getId(asset.assetId)"
         >
           Edit
-        </button> -->
+        </button>
         <button (click)="deleteAsset(asset)" class="btn btn-danger mx-3">
           Delete
         </button>
@@ -34,3 +31,53 @@
     </tr>
   </tbody>
 </table>
+<!-- Button trigger modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="assetForm" (ngSubmit)="onSubmit()">
+        
+          <hr/>
+        
+              <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">Asset name</label>
+                <input type="text" class="form-control" id="inputAssetName" formControlName="assetName"  >
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputCity">Asset type</label>
+                <input type="text" class="form-control" id="inputAssetType" formControlName="assetType"  >
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputCity">Given Date</label>
+                <input type="date" class="form-control" id="inputGivendate" formControlName="givenDate"  >
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputCity">Return Date</label>
+                <input type="date" class="form-control" id="inputCity" formControlName="returnDate"  >
+              </div>
+              
+              <br/>
+              
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+               
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </form>
+        
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EmployeeService } from 'src/app/core/employee.service';
 import { Employee } from 'src/app/shared/models/employee.model';
 
@@ -10,6 +11,16 @@ import { Employee } from 'src/app/shared/models/employee.model';
 export class ViewEmployeeComponent implements OnInit {
   public employees: any = [];
   public employee:any;
+  private getid:any;
+  public mainModel = new Employee();
+
+  employeeForm = new FormGroup({
+    id: new FormControl('', Validators.required),
+    name: new FormControl('', Validators.required),
+    address: new FormControl('', Validators.required),
+    contact: new FormControl('', Validators.required),
+  });
+  
   
   constructor(private employeeService :EmployeeService) { }
 
@@ -19,6 +30,18 @@ export class ViewEmployeeComponent implements OnInit {
     });
     this.getAllEmployees()
   }
+  onSubmit(){
+
+    console.log(this.employeeForm.value)
+    const employee = new Employee();
+    employee.id = this.getid!;
+    employee.name = this.employeeForm.value.name!;
+    employee.address = this.employeeForm.value.address!;
+    employee.contact =  this.employeeForm.value.contact!;
+    this.employeeService.addEmployee(employee)
+  
+   }
+
   getAllEmployees(): void { 
     this.employeeService 
       .getAllEmployee()
@@ -32,6 +55,16 @@ export class ViewEmployeeComponent implements OnInit {
       console.log(response);  
   })
   
+}
+getId(id: any) {
+  this.getid = id;
+}
+
+updateEmployee(): void {
+  this.employeeService
+    .updateEmployee(this.mainModel)
+    .subscribe((response) => (this.employee));
+  console.log(this.employee);
 }
 
 

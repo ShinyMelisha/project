@@ -10,9 +10,7 @@ import { ApiService } from './api.service';
   providedIn: 'root'
 })
 export class AssetService {
-  // deleteAsset(aseetId: any) {
-  //   throw new Error('Method not implemented.');
-  // }
+  
   private _refreshNeeded$ = new Subject<void>();
   get refreshNeeded$() {
     return this._refreshNeeded$;
@@ -48,6 +46,13 @@ export class AssetService {
       })
     );
   }
+  updateAsset(assetData: Asset): Observable<Asset> {
+    return this.http.put<any>(`${environment.backendUrl}asset/edit`, assetData).pipe(
+      tap(() => {
+        this._refreshNeeded$.next();
+      })
+    );
   
 }
 
+}

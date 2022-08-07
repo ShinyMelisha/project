@@ -42,4 +42,12 @@ export class AssignmentService {
       })
     );
   }
+  updateAssignment(assignData: Assignment): Observable<Assignment> {
+    return this.http.put<any>(`${environment.backendUrl}assign/edit`, assignData).pipe(
+      tap(() => {
+        this._refreshNeeded$.next();
+      })
+    );
+  
+}
 }
