@@ -41,5 +41,13 @@ export class EmployeeService {
       })
     );
   }
+  updateEmployee(EmployeeData: Employee): Observable<Employee> {
+    return this.http.put<any>(`${environment.backendUrl}emp/edit`, EmployeeData).pipe(
+      tap(() => {
+        this._refreshNeeded$.next();
+      })
+    );
+  
+}
 
 }

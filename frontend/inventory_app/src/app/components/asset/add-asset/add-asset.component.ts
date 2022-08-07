@@ -26,9 +26,8 @@ export class AddAssetComponent implements OnInit {
   constructor(private assetService :AssetService,private router: Router) { }
 
   ngOnInit(): void {
-  }
-
   
+  }
   onSubmit(){
 
     console.log(this.assetForm.value)

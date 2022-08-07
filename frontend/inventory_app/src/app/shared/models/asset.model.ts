@@ -4,5 +4,6 @@ export class Asset {
     assetType!:  string;
     givenDate!:  string;
     returnDate!: string;
+  
    
 }
