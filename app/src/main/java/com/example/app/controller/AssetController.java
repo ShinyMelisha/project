@@ -26,6 +26,7 @@ public class AssetController {
     public String getHome() {
         return "This is home page";
     }
+
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/view")
     public String getViewAsset() {
@@ -40,16 +41,13 @@ public class AssetController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @ PostMapping("/add")
+    @PostMapping("/add")
     public String addAsset(@RequestBody Asset asset){
         assetService.addAsset(asset);
         return "Successfully added";
     }
+
     @CrossOrigin(origins = "http://localhost:4200")
-    @PostMapping("/edit")
-    public Asset editAsset(@RequestBody Asset asset){
-
-
     @PostMapping("/edit")
     public Asset editAsset( @Valid @RequestBody Asset asset){
         return assetService.editAsset(asset);
