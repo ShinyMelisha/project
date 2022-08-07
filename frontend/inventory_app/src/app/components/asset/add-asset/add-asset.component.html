@@ -1,0 +1,42 @@
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Add asset</span>
+  </nav>
+<form [formGroup]="assetForm" (ngSubmit)="onSubmit()">
+  <!-- {{userForm.value|json}} -->
+  <hr/>
+  <!-- //{{userModel| json}} -->
+    
+      <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputCity">Asset ID</label>
+            <input type="text" class="form-control" id="inputAssetId" formControlName="assetId"  >
+          </div>
+        </div>
+      <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">Asset name</label>
+        <input type="text" class="form-control" id="inputAssetName" formControlName="assetName"  >
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputCity">Asset type</label>
+        <input type="text" class="form-control" id="inputAssetType" formControlName="assetType"  >
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputCity">Given Date</label>
+        <input type="date" class="form-control" id="inputGivendate" formControlName="givenDate"  >
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputCity">Return Date</label>
+        <input type="date" class="form-control" id="inputCity" formControlName="returnDate"  >
+      </div>
+      
+      <br/>
+      
+    </div>
+    <div class="form-group">
+      <div class="form-check">
+       
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add asset</button>
+  </form>

@@ -1,0 +1,36 @@
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">View employees</span>
+</nav>
+<table class="table mt-3">
+
+  <thead>
+    <th scope="col">Employee ID</th>
+    <th scope="col">Employee name</th>
+    <th scope="col">Address</th>
+    <th scope="col">Contact</th>
+    <th scope="col"></th>
+  </thead>
+<tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.nsame }}</td>
+      <td>{{ employee.address }}</td>
+      <td>{{ employee.contact }}</td>
+      <td></td>
+      <td>
+        <!-- <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal2"
+          class="btn btn-info"
+          (click)="getId(asset.assetId)"
+        >
+          Edit
+        </button> -->
+        <button (click)="deleteEmployee(employee)" class="btn btn-danger mx-3">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

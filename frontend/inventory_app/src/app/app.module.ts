@@ -13,26 +13,28 @@ import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { SecurityComponent } from './security/security.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
-import { AddAssetComponent } from './components/add-asset/add-asset.component';
-import { ViewAssetComponent } from './components/view-asset/view-asset.component';
-import { EditAssetComponent } from './components/edit-asset/edit-asset.component';
-import { DeleteAssetComponent } from './components/delete-asset/delete-asset.component';
+import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
+import { AddAssetComponent } from './components/asset/add-asset/add-asset.component';
+import { ViewAssetComponent } from './components/asset/view-asset/view-asset.component';
+import { AddEmployeeComponent } from './components/employee/add-employee/add-employee.component';
+import { ViewEmployeeComponent } from './components/employee/view-employee/view-employee.component';
+import { ViewAssignmentComponent } from './components/assign/view-assignment/view-assignment.component';
+import { AssignComponent } from './components/assign/assign/assign.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SecurityComponent,
     DashboardComponent,
     DashboardAdminComponent,
-    AddAssetComponent,
     ViewAssetComponent,
-    EditAssetComponent,
-    DeleteAssetComponent,
+    AddAssetComponent,
+    AddEmployeeComponent,
+    ViewEmployeeComponent,
+    AssignComponent,
+    ViewAssignmentComponent,
   
    
   ],

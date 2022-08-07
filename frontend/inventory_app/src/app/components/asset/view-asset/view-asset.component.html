@@ -1,0 +1,36 @@
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">View assets</span>
+</nav>
+<table class="table mt-3">
+
+  <thead>
+    <th scope="col">Asset ID</th>
+    <th scope="col">Asset name</th>
+    <th scope="col">Asset type</th>
+    <th scope="col">Given date</th>
+    <th scope="col">Return date</th>
+  </thead>
+<tbody>
+    <tr *ngFor="let asset of assets">
+      <td>{{ asset.assetId }}</td>
+      <td>{{ asset.assetName }}</td>
+      <td>{{ asset.assetType }}</td>
+      <td>{{ asset.givenDate }}</td>
+      <td>{{ asset.returnDate }}</td>
+      <td>
+        <!-- <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal2"
+          class="btn btn-info"
+          (click)="getId(asset.assetId)"
+        >
+          Edit
+        </button> -->
+        <button (click)="deleteAsset(asset)" class="btn btn-danger mx-3">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,34 @@
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Add assignment</span>
+  </nav>
+  <br/><br/>
+  <form [formGroup]="assignForm" (ngSubmit)="onSubmit()">
+    <!-- {{userForm.value|json}} -->
+    <hr/>
+    <!-- //{{userModel| json}} -->
+      
+        <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">Assignment Id</label>
+          <input type="text" class="form-control" id="inputAssetName" formControlName="assignmentId"  >
+        </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">Asset Id</label>
+          <input type="text" class="form-control" id="inputAssetType" formControlName="assetId"  >
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputCity">Employee Id</label>
+          <input type="text" class="form-control" id="inputGivendate" formControlName="employeeId"  >
+        </div>        
+        <br/>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+         
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Add assignment</button>
+    </form>
+        
