@@ -1,0 +1,37 @@
+.buttons{
+    list-style: none;
+    padding: 20px 10px 20px 10px;
+    text-align: center;
+    align-items: center;
+    margin-top: 20px;
+    
+}
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 45px 10px 45px;
+    width: 100%;
+    border-radius: 20px;
+}
+.btn-primary:hover{
+    background-color: #013a73;
+}
+.column {
+    float: left;
+    width: 50%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .mat-card {
+    background: none;
+    color: rgba(0, 0, 0, 0.87);
+}
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+}

@@ -13,6 +13,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
   viewAssignments(){
-    this.router.navigate(['/view-assign'])  };
+    this.router.navigate(['/view-only-assign'])  };
 
 }
